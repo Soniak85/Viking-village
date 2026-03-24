@@ -1,0 +1,212 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%);
+    color: #fff;
+    overflow: hidden;
+}
+
+#gameContainer {
+    width: 100vw;
+    height: 100vh;
+}
+
+#ui {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 100;
+}
+
+#hudTop {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 101;
+    pointer-events: none;
+}
+
+.resource {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffd700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.resource .icon {
+    font-size: 24px;
+}
+
+.panel {
+    position: fixed;
+    background: rgba(26, 26, 46, 0.95);
+    border: 2px solid #ffd700;
+    border-radius: 8px;
+    padding: 15px;
+    backdrop-filter: blur(10px);
+    pointer-events: auto;
+    max-width: 300px;
+}
+
+.panel.hidden {
+    display: none;
+}
+
+#buildingPanel {
+    bottom: 120px;
+    left: 20px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+#infoPanel {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 400px;
+}
+
+#controlsPanel {
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#mythologyPanel {
+    bottom: 20px;
+    right: 20px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+#statsPanel {
+    top: 100px;
+    right: 20px;
+}
+
+.panel h3 {
+    color: #ffd700;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    border-bottom: 2px solid #ffd700;
+    padding-bottom: 8px;
+}
+
+.panel p {
+    margin: 5px 0;
+    color: #ccc;
+}
+
+button {
+    background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+    border: none;
+    color: #1a1a2e;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    pointer-events: auto;
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+.building-btn {
+    width: 100%;
+    text-align: left;
+    margin: 5px 0;
+    padding: 8px 10px;
+    font-size: 12px;
+}
+
+.building-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.god-card {
+    background: rgba(255, 215, 0, 0.1);
+    border: 1px solid #ffd700;
+    padding: 8px;
+    margin: 5px 0;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+.god-card .god-name {
+    color: #ffd700;
+    font-weight: bold;
+}
+
+.god-card .god-power {
+    color: #ccc;
+    font-size: 11px;
+    margin-top: 3px;
+}
+
+#closeInfo {
+    margin-top: 10px;
+    width: 100%;
+}
+
+/* Scrollbar personalizzata */
+.panel::-webkit-scrollbar {
+    width: 8px;
+}
+
+.panel::-webkit-scrollbar-track {
+    background: rgba(255, 215, 0, 0.1);
+}
+
+.panel::-webkit-scrollbar-thumb {
+    background: #ffd700;
+    border-radius: 4px;
+}
+
+.panel::-webkit-scrollbar-thumb:hover {
+    background: #ffed4e;
+}
+
+@media (max-width: 768px) {
+    #hudTop {
+        flex-wrap: wrap;
+        gap: 15px;
+        padding: 10px;
+    }
+
+    .resource {
+        font-size: 12px;
+    }
+
+    .panel {
+        max-width: calc(100vw - 40px);
+    }
+}
